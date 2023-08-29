@@ -129,7 +129,7 @@ $(document).ready(function () {
 
     $("#new-product").validate({
         rules: {
-            Categoría: {
+            Categoria: {
                 required: true
             },
             Proveedor: {
@@ -154,7 +154,7 @@ $(document).ready(function () {
             }
         },
         messages: {
-            Categoría: {
+            Categoria: {
                 required: "Ingrese categoria"
             },
             Proveedor: {
@@ -182,12 +182,70 @@ $(document).ready(function () {
         submitHandler: function () { alert("Producto ingresado con exito") }
     });
 
-    $(function () {
+    $("#edit-product").validate({
+        rules: {
+            Categoria: {
+                required: true
+            },
+            Proveedor: {
+                required: true
+            },
+            Marca: {
+                required: true
+            },
+            Tipo: {
+                required: true
+            },
+            Nombre: {
+                required: true
+            },
+            Precio: {
+                required: true,
+                number: true
+            },
+            Stock: {
+                required: true,
+                number: true
+            }
+        },
+        messages: {
+            Categoria: {
+                required: "Ingrese categoria"
+            },
+            Proveedor: {
+                required: "Ingrese proveedor"
+            },
+            Marca: {
+                required: "Ingrese marca"
+            },
+            Tipo: {
+                required: "Ingrese tipo"
+            },
+            Nombre: {
+                required: "Ingrese nombre"
+            },
+            Precio: {
+                required: "Ingrese precio",
+                number: "Ingrese precio valido"
+            },
+            Stock: {
+                required: "Ingrese stock",
+                number: "Ingrese stock valido"
+            }
+        },
+        success: "valido",
+        submitHandler: function () { alert("Producto modificado con exito") }
+    });
 
-        $("#todo-list").on('click', '.todo-item-delete', function (e) {
-            var item = this;
-            deleteTodoItem(e, item)
-        })
+    $("#btn1").bind("click", function(e) {
+        $(e.target).closest("#1").css("display", "none");
+    });
 
+    $("#btn2").bind("click", function(e) {
+        $(e.target).closest("#2").css("display", "none");
+    });
+
+    $("#btn3").bind("click", function(e) {
+        $(e.target).closest("#3").css("display", "none");
     });
 });
