@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand">Bienvenido/a {nombre_usuario}</a>
+            <a class="navbar-brand" href="#">Tienda de Mascotas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio Sesión</a>
+                        <a class="nav-link" href="login.html">Inicio Sesión</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.html">Registrarse</a>
@@ -34,32 +34,29 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Directorio
+                            Categorías
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="catperro.html">Perros</a></li>
+                            <li><a class="dropdown-item" href="catgato.html">Gatos</a></li>
+                            <li><a class="dropdown-item" href="catmed.html">Farmacia</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1>Inicio sesión</h1>
     <div class="container-fluid pt-5">
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Dirección de correo</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Escriba Dirección de Correo" required>
+                <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Escriba Contraseña"
-                    required>
+                <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary">Inicio Sesión</button>
+            <button type="submit" class="btn btn-primary">Logear</button>
         </form>
         <a href="recuperar.html">Recuperar Contraseña</a>
     </div>
