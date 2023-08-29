@@ -110,7 +110,7 @@ $(document).ready(function () {
         submitHandler: function() { alert("Datos editados con exito") }
     });
 
-    $("#edit").validate({
+    $("#recuperar").validate({
         rules: {
             email: {
                 required: true,
@@ -125,5 +125,60 @@ $(document).ready(function () {
         },
         success: "valido",
         submitHandler: function() { alert("Se ha enviado contraseña al correo") }
+    });
+
+    $("#new-product").validate({
+        rules: {
+            Categoría: {
+                required: true
+            },
+            Proveedor: {
+                required: true
+            },
+            Marca: {
+                required: true
+            },
+            Tipo: {
+                required: true
+            },
+            Nombre: {
+                required: true
+            },
+            Precio: {
+                required: true,
+                number: true
+            },
+            Stock: {
+                required: true,
+                number: true
+            }
+        },
+        messages: {
+            Categoría: {
+                required: "Ingrese categoria"
+            },
+            Proveedor: {
+                required: "Ingrese proveedor"
+            },
+            Marca: {
+                required: "Ingrese marca"
+            },
+            Tipo: {
+                required: "Ingrese tipo"
+            },
+            Nombre: {
+                required: "Ingrese nombre"
+            },
+            Precio: {
+                required: "Ingrese precio",
+                number: "Ingrese precio valido"
+            },
+            Stock: {
+                required: "Ingrese stock",
+                number: "Ingrese stock valido"
+            }
+        },
+        success: "valido",
+        submitHandler: function() { alert("Producto ingresado con exito") }
     });
 });

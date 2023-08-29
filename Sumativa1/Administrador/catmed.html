@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatos | </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tienda de Mascotas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Inicio Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edit.html">Editar tus datos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="catperro.html">Perros</a></li>
+                            <li><a class="dropdown-item" href="catgato.html">Gatos</a></li>
+                            <li><a class="dropdown-item" href="catmed.html">Farmacia</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproduct.html">Agregar producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="stock.html">Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">Carrito de Compras</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container pt-5">
+        <h1>Farmacia</h1>
+        <div class="row my-5">
+            <div class="col-md-4">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Nombre producto" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <br>
+                <h6>Categorías</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="catperro.html">Perros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catgato.html">Gatos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catmed.html">Farmacia</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://static.wixstatic.com/media/4e1101_c1d3b8edb489436b9274cc417fd4bcc8~mv2.jpg/v1/fill/w_500,h_375,al_c,lg_1,q_80,enc_auto/4e1101_c1d3b8edb489436b9274cc417fd4bcc8~mv2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Potenmic <br>250 ml <br> $18.000</p>
+                                <a href="producto.html">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://animed.cl/cdn/shop/products/power-spot-on-hasta-4-kilos_700x.png?v=1692055177"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Power spot on <br> hasta 10 Kg <br> $6.890</p>
+                                <a href="producto.html">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mt-5">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

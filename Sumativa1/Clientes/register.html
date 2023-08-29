@@ -49,25 +49,29 @@
         </div>
     </nav>
     <div class="container-fluid pt-5">
-        <form id="register">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
-                <input type="email" class="form-control" id="email" required>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <form id="register">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="pass1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Confirme contraseña</label>
+                        <input type="password" class="form-control" id="pass2" data-rule-equalTo="#pass1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="pass1" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirme contraseña</label>
-                <input type="password" class="form-control" id="pass2" data-rule-equalTo="#pass1" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar</button>
-        </form>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
