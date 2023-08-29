@@ -39,7 +39,7 @@ $(document).ready(function () {
             }
         },
         success: "valido",
-        submitHandler: function() { alert("Registrado con exito") }
+        submitHandler: function () { alert("Registrado con exito") }
     });
 
     $("#login").validate({
@@ -64,7 +64,7 @@ $(document).ready(function () {
             }
         },
         success: "valido",
-        submitHandler: function() { alert("Ha ingresado con exito!") }
+        submitHandler: function () { alert("Ha ingresado con exito!") }
     });
 
     $("#edit").validate({
@@ -107,7 +107,7 @@ $(document).ready(function () {
             }
         },
         success: "valido",
-        submitHandler: function() { alert("Datos editados con exito") }
+        submitHandler: function () { alert("Datos editados con exito") }
     });
 
     $("#recuperar").validate({
@@ -124,7 +124,7 @@ $(document).ready(function () {
             }
         },
         success: "valido",
-        submitHandler: function() { alert("Se ha enviado contraseña al correo") }
+        submitHandler: function () { alert("Se ha enviado contraseña al correo") }
     });
 
     $("#new-product").validate({
@@ -179,6 +179,15 @@ $(document).ready(function () {
             }
         },
         success: "valido",
-        submitHandler: function() { alert("Producto ingresado con exito") }
+        submitHandler: function () { alert("Producto ingresado con exito") }
+    });
+
+    $(function () {
+
+        $("#todo-list").on('click', '.todo-item-delete', function (e) {
+            var item = this;
+            deleteTodoItem(e, item)
+        })
+
     });
 });
