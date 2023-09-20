@@ -98,5 +98,6 @@ class Venta(models.Model):
 class Detalle_venta(models.Model):
     
     id_detalle = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     ventas = models.ForeignKey(Venta, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

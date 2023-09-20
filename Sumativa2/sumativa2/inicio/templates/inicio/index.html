@@ -1,12 +1,12 @@
 {% extends "inicio/base/base.html" %}
 
 {% block content %}
-{% if usuario %}
+{% if usuario.id_usuario != 0 %}
 <div class="container-fluid pt-5 max_width">
     <div class="row justify-content-center">
         <div class="col-10">
             <div class="row">
-            <h1>Bienvenido {{ usuario.nombre }}</h1>
+            <h1>Bienvenido {{ usuario.nombre_usuario }}</h1>
             </div>
             <div class="row">
             <p>Elija una categoria</p>
