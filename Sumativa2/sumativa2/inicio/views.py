@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Create your views here.
@@ -11,6 +12,7 @@ def registro(request):
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
+@login_required(login_url='inicio/index.html')
 def perro(request):
     count = Producto.objects.filter(categoria_producto=1).count()
     if count == 0:
@@ -26,6 +28,7 @@ def perro(request):
         }
         return render(request, 'inicio/perro.html', context)
 
+@login_required(login_url='inicio/index.html')
 def gato(request):
     count = Producto.objects.filter(categoria_producto=2).count()
     if count == 0:
@@ -40,7 +43,8 @@ def gato(request):
             'product' : productos
         }
         return render(request, 'inicio/gato.html', context)
-    
+
+@login_required(login_url='inicio/index.html')
 def medicina(request):
     count = Producto.objects.filter(categoria_producto=3).count()
     if count == 0:
