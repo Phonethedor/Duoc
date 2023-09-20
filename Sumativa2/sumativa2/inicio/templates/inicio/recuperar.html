@@ -1,0 +1,21 @@
+{% extends 'inicio/base/base.html' %}
+
+{% block content %}
+<h1 class="px-5">Recuperar Contraseña</h1>
+    <div class="container-fluid pt-5 max_width">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <form id="recuperar">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Ingrese su correo</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ingrese Correo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                </form>
+                <p id="correo_encontrado"></p>
+                <a href="{% url 'index' %}">Volver</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -4,7 +4,7 @@
 {% if usuario %}
     <h1>logeado</h1>
 {% else %}
-<div class="container-fluid pt-5" id="log">
+<div class="container-fluid pt-5 max_width">
     <div class="row justify-content-center">
         <div class="col-10">
             <form id="login">
@@ -19,9 +19,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Logear</button>
             </form>
-            <a href="recuperar.html">Recuperar Contraseña</a>
+            <a href="{% url 'recuperar' %}">Recuperar Contraseña</a>
         </div>
     </div>
 </div>
 {% endif %}
-{% endblock content %}}
+{% endblock content %}

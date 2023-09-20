@@ -6,3 +6,6 @@ def index(request):
 
 def registro(request):
     return render(request, 'inicio/registro.html')
+
+def recuperar(request):
+    return render(request, 'inicio/recuperar.html')
