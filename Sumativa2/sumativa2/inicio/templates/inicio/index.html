@@ -2,7 +2,27 @@
 
 {% block content %}
 {% if usuario %}
-    <h1>logeado</h1>
+<div class="container-fluid pt-5 max_width">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+            <h1>Bienvenido {{ usuario.nombre }}</h1>
+            </div>
+            <div class="row">
+            <p>Elija una categoria</p>
+            </div>
+            <div class="row">
+                <a href="{% url 'perro' %}">Perros</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'gato' %}">Gatos</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'medicina' %}">Medicina</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% else %}
 <div class="container-fluid pt-5 max_width">
     <div class="row justify-content-center">

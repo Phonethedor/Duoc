@@ -9,3 +9,19 @@ def registro(request):
 
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
+
+#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
+def perro(request):
+    return render(request, 'inicio/perro.html')
+
+#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
+def gato(request):
+    return render(request, 'inicio/gato.html')
+
+#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
+def medicina(request):
+    return render(request, 'inicio/medicina.html')
+
+#TODO agregar funcion para añadir a carrito desde vista de productos
+def add_carrito(request):
+    pass
