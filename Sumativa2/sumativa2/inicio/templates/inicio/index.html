@@ -4,6 +4,24 @@
 {% if usuario %}
     <h1>logeado</h1>
 {% else %}
-    <h1>no logeado</h1>
+<div class="container-fluid pt-5" id="log">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <form id="login">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Logear</button>
+            </form>
+            <a href="recuperar.html">Recuperar Contraseña</a>
+        </div>
+    </div>
+</div>
 {% endif %}
 {% endblock content %}}

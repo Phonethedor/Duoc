@@ -1,3 +1,11 @@
 body {
     background-color: aquamarine;
 }
+
+#log {
+    max-width: 50rem;
+}
+
+#registro_usuario {
+    max-width: 50rem;
+}
