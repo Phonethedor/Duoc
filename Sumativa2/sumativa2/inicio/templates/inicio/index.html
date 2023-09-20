@@ -1,5 +1,9 @@
 {% extends "inicio/base/base.html" %}
 
 {% block content %}
-<h1>Ok</h1>
+{% if usuario %}
+    <h1>logeado</h1>
+{% else %}
+    <h1>no logeado</h1>
+{% endif %}
 {% endblock content %}}
