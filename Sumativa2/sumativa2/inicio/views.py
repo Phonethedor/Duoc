@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 def index(request):
@@ -10,17 +11,50 @@ def registro(request):
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
-#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
 def perro(request):
-    return render(request, 'inicio/perro.html')
+    count = Producto.objects.filter(categoria_producto=1).count()
+    if count == 0:
+        context = {
+            'count' : count
+        }
+        return render(request, 'inicio/perro.html', context)
+    else:
+        productos = Producto.objects.filter(categoria_producto=1)
+        context = {
+            'count' : count,
+            'product' : productos
+        }
+        return render(request, 'inicio/perro.html', context)
 
-#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
 def gato(request):
-    return render(request, 'inicio/gato.html')
-
-#TODO agregar funcion para contar productos con la categoria en cuestion y enviar a template
+    count = Producto.objects.filter(categoria_producto=2).count()
+    if count == 0:
+        context = {
+            'count' : count
+        }
+        return render(request, 'inicio/gato.html', context)
+    else:
+        productos = Producto.objects.filter(categoria_producto=2)
+        context = {
+            'count' : count,
+            'product' : productos
+        }
+        return render(request, 'inicio/gato.html', context)
+    
 def medicina(request):
-    return render(request, 'inicio/medicina.html')
+    count = Producto.objects.filter(categoria_producto=3).count()
+    if count == 0:
+        context = {
+            'count' : count
+        }
+        return render(request, 'inicio/medicina.html', context)
+    else:
+        productos = Producto.objects.filter(categoria_producto=3)
+        context = {
+            'count' : count,
+            'product' : productos
+        }
+        return render(request, 'inicio/medicina.html', context)
 
 #TODO agregar funcion para añadir a carrito desde vista de productos
 def add_carrito(request):
