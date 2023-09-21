@@ -128,7 +128,7 @@ def modificar_stock(request, id):
     id = int(request.POST['id_producto'])
     stock = request.POST['stock']
 
-    producto = Producto.objects.get(id_usuario=id)
+    producto = Producto.objects.get(id_producto=id)
     producto.stock_producto = stock
     
     producto.save()
