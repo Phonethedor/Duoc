@@ -13,25 +13,39 @@ def index(request):
     return render(request, 'inicio/index.html', context)
 
 def log_in(request):
-    user = Usuario.objects.filter(correo_usuario=request.POST['usuario'].lower())
-    password = Usuario.objects.validatelog(pass_usuario=request.POST['password'])
+    user = Usuario.objects.filter(correo_usuario=request.POST['email'].lower())
+    password = Usuario.objects.filter(pass_usuario=request.POST['password'].lower())
 
     if len(user != password):        
-        return redirect('index')
+        return redirect('/')
     else:
         request.session['id'] = user[0].id_usuario
         request.session['user_name'] = user[0].nombre_usuario
-        return redirect('index')  
+        return redirect('/')  
     
-def logout(request):
+def log_out(request):
     request.session.flush()
-    return redirect('index')
+    return redirect('/')
 
 def registro(request):
     return render(request, 'inicio/registro.html')
 
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
+
+@login_required(login_url='inicio/index.html')
+def editar(request):
+    id = int(request.POST['id'])
+    email = request.POST['email']
+    nombre = request.POST['nombre']
+    password = request.POST['pass1']
+
+    user = Usuario.objects.get(id_usuario=id)
+    user.correo_usuario = email
+    user.nombre_usuario = nombre
+    user.pass_usuario = password
+    user.save()
+    return redirect('/')
 
 @login_required(login_url='inicio/index.html')
 def perro(request):
