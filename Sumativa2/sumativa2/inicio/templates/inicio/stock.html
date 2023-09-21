@@ -18,8 +18,8 @@
                 <td>{{ producto.nombre_producto }}</td>
                 <td>{{ producto.stock_producto }}</td>
                 <td>
-                    <a href="editproduct.html" class="btn btn-success ms-1">Editar</a>
-                    <button id="btn1" type="submit" class="btn btn-danger erase">Eliminar</button>
+                    <a href="{% url 'editar_stock' id='{{ producto.id_producto }}' %}"  class="btn btn-success ms-1">Editar</a>
+                    <a hreft="{% url 'eliminar_stock' id='{{ producto.id_producto }}' %}" class="btn btn-danger erase">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}            

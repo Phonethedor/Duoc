@@ -6,7 +6,7 @@
     <div class="container-fluid pt-5">
         <div class="row justify-content-center max_width">
             <div class="col-10">
-                <form id="register">
+                <form id="register" action="{% url 'registrar' %}">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>

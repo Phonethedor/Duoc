@@ -30,6 +30,14 @@ def log_out(request):
 def registro(request):
     return render(request, 'inicio/registro.html')
 
+def registrar(request):
+    correo = request.POST['email']
+    nombre = request.POST['nombre']
+    password = request.POST['pass1']
+
+    usuario = Usuario.create(correo_usuario = correo, nombre_usuario = nombre, pass_usuario = password, rol_usuario = 2)
+    return redirect('index')
+
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
@@ -102,6 +110,29 @@ def stock(request):
         'productos' : productos
     }
     return render(request, 'inicio/stock.html', context)
+
+@login_required(login_url='index')
+def eliminar_stock(request, id):
+    producto = Producto.objects.get(id_producto=id)
+    producto.delete()
+    return redirect('stock')
+
+def editar_stock(request, id):
+    producto = Producto.objects.get(id_producto=id)
+    context = {
+        'producto' : producto
+    }
+    return render(request, 'inicio/editar_stock.html', context)
+
+def modificar_stock(request, id):
+    id = int(request.POST['id_producto'])
+    stock = request.POST['stock']
+
+    producto = Producto.objects.get(id_usuario=id)
+    producto.stock_producto = stock
+    
+    producto.save()
+    return redirect('stock')
 
 #TODO agregar funcion para añadir a carrito desde vista de productos
 def add_carrito(request):
