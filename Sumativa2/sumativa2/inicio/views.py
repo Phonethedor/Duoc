@@ -94,7 +94,19 @@ def medicina(request):
             'product' : productos
         }
         return render(request, 'inicio/medicina.html', context)
+    
+@login_required(login_url='index')
+def stock(request):
+    productos = Producto.objects.all()
+    context = {
+        'productos' : productos
+    }
+    return render(request, 'inicio/stock.html', context)
 
 #TODO agregar funcion para añadir a carrito desde vista de productos
 def add_carrito(request):
+    pass
+
+#TODO agregar funcion para ver carrito
+def ver_carrito(request):
     pass
