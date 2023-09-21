@@ -124,7 +124,7 @@ def editar_stock(request, id):
     }
     return render(request, 'inicio/editar_stock.html', context)
 
-def modificar_stock(request, id):
+def modificar_stock(request):
     id = int(request.POST['id_producto'])
     stock = request.POST['stock']
 
@@ -133,6 +133,28 @@ def modificar_stock(request, id):
     
     producto.save()
     return redirect('stock')
+
+'''
+Categoria
+proveedor
+marca
+tipo
+'''
+def agregar_producto(request):
+    categorias = Categoria.objects.all()
+    proveedores = Proveedor.objects.all()
+    marcas = Marca.objects.all()
+    tipos = Tipo_producto.objects.all()
+    context = {
+        'categorias' : categorias,
+        'proveedores' : proveedores,
+        'marcas' : marcas,
+        'tipos' : tipos
+    }
+    return render(request, 'inicio/agregar_producto.html', context)
+
+def add_producto(request):
+    pass
 
 #TODO agregar funcion para añadir a carrito desde vista de productos
 def add_carrito(request):
