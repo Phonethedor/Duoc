@@ -17,15 +17,15 @@ def log_in(request):
     password = Usuario.objects.filter(pass_usuario=request.POST['password'].lower())
 
     if len(user != password):        
-        return redirect('/')
+        return redirect('index')
     else:
         request.session['id'] = user[0].id_usuario
         request.session['user_name'] = user[0].nombre_usuario
-        return redirect('/')  
+        return redirect('index')  
     
 def log_out(request):
     request.session.flush()
-    return redirect('/')
+    return redirect('index')
 
 def registro(request):
     return render(request, 'inicio/registro.html')
@@ -33,7 +33,7 @@ def registro(request):
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
-@login_required(login_url='inicio/index.html')
+@login_required(login_url='index')
 def editar(request):
     id = int(request.POST['id'])
     email = request.POST['email']
@@ -47,7 +47,7 @@ def editar(request):
     user.save()
     return redirect('/')
 
-@login_required(login_url='inicio/index.html')
+@login_required(login_url='index')
 def perro(request):
     count = Producto.objects.filter(categoria_producto=1).count()
     if count == 0:
@@ -63,7 +63,7 @@ def perro(request):
         }
         return render(request, 'inicio/perro.html', context)
 
-@login_required(login_url='inicio/index.html')
+@login_required(login_url='index')
 def gato(request):
     count = Producto.objects.filter(categoria_producto=2).count()
     if count == 0:
@@ -79,7 +79,7 @@ def gato(request):
         }
         return render(request, 'inicio/gato.html', context)
 
-@login_required(login_url='inicio/index.html')
+@login_required(login_url='index')
 def medicina(request):
     count = Producto.objects.filter(categoria_producto=3).count()
     if count == 0:
