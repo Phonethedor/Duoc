@@ -117,6 +117,7 @@ def eliminar_stock(request, id):
     producto.delete()
     return redirect('stock')
 
+@login_required(login_url='index')
 def editar_stock(request, id):
     producto = Producto.objects.get(id_producto=id)
     context = {
@@ -134,12 +135,7 @@ def modificar_stock(request):
     producto.save()
     return redirect('stock')
 
-'''
-Categoria
-proveedor
-marca
-tipo
-'''
+@login_required(login_url='index')
 def agregar_producto(request):
     categorias = Categoria.objects.all()
     proveedores = Proveedor.objects.all()
@@ -154,7 +150,28 @@ def agregar_producto(request):
     return render(request, 'inicio/agregar_producto.html', context)
 
 def add_producto(request):
-    pass
+    nombre = request.POST['nombre']
+    descripcion = request.POST['descripcion']
+    valor = request.POST['precio']
+    stock = request.POST['stock']
+    imagen = request.FILES['imagen']
+    proveedor = request.POST['proveedor']
+    marca = request.POST['marca']
+    tipo = request.POST['tipo']
+    categoria = request.POST['categoria']
+
+    Producto.objects.create(
+        nombre_producto=nombre, 
+        descripcion_producto=descripcion, 
+        valor_producto=valor, 
+        stock_producto=stock,
+        imagen_producto=imagen,
+        proveedor_producto=proveedor,
+        marca_producto=marca,
+        tipo_producto=tipo,
+        categoria_producto=categoria
+        )
+    return redirect('stock')
 
 #TODO agregar funcion para añadir a carrito desde vista de productos
 def add_carrito(request):
