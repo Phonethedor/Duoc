@@ -1,0 +1,33 @@
+{% extends "inicio/base/base.html" %}
+
+{% block content %}
+<h1>Editar</h1>
+    <div class="container-fluid pt-5">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <form id="edit" action="{% url 'editar' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{usuario.id_usuario}}" id="id" method="POST">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+                        <p>{{ usuario.email_usuario }}</p>
+                        <input type="email" class="form-control" id="email" required method="POST">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <p>{{ usuario.nombre_usuario }}</p>
+                        <input type="text" class="form-control" id="nombre" required method="POST">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="pass1" required method="POST">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Confirme contraseña</label>
+                        <input type="password" class="form-control" id="pass2" data-rule-equalTo="#pass1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "inicio/base/base.html" %}
+
+{% block content %}
+<div class="container pt-5">
+    <table class="table mb-4">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <th scope="row" id="id_producto" value="{{ producto.id_producto }}">{{ producto.id_producto }}</th>
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.stock_producto }}</td>
+                <td>
+                    <a href="{% url 'editar_stock' id='{{ producto.id_producto }}' %}"  class="btn btn-success ms-1">Editar</a>
+                    <a hreft="{% url 'eliminar_stock' id='{{ producto.id_producto }}' %}" class="btn btn-danger erase">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+</div>
+{% endblock %}

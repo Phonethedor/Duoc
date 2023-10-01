@@ -1,0 +1,91 @@
+{% extends "inicio/base/base.html" %}
+
+{% block content %}
+<div class="container pt-5">
+    <h2>Agregar Producto</h2>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <form id="new-product" action="{% url 'add_producto' %}">
+                        <div class="mb-3 row">
+                            <label for="Categoria" class="col-sm-2 col-form-label">Categoria</label>
+                            <div class="col-sm-10">
+                                <select name="categoria" id="categoria" method="POST">
+                                    {% for categoria in categorias %}
+                                    <option value="categoria.id_categoria">{{categoria.nombre_categoria}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="proveedor" class="col-sm-2 col-form-label">Proveedor</label>
+                            <div class="col-sm-10">
+                                <select name="proveedor" id="proveedor" method="POST">
+                                    {% for proveedor in proveedores %}
+                                    <option value="proveedor.id_proveedor">{{proveedor.nombre_proveedor}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="marca" class="col-sm-2 col-form-label">Marca</label>
+                            <div class="col-sm-10">
+                                <select name="marca" id="marca" method="POST">
+                                    {% for marca in marcas %}
+                                    <option value="marca.id_marca">{{marca.nombre_marca}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="tipo" class="col-sm-2 col-form-label">Tipo</label>
+                            <div class="col-sm-10">
+                                <select name="tipo" id="tipo" method="POST">
+                                    {% for tipo in tipos %}
+                                    <option value="tipo.id_tipo_producto">{{tipo.descripcion_tipo_producto}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                    placeholder="Indique Nombre" required method="POST">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="descripcion" id="descripcion"
+                                    placeholder="Indique Descripcion de producto" required method="POST">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="precio" id="precio"
+                                    placeholder="Indique Precio" required method="POST">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="stock" class="col-sm-2 col-form-label">Stock</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="stock" id="stock"
+                                    placeholder="Indique Stock" required method="POST">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" name="imagen" id="imagen" required>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

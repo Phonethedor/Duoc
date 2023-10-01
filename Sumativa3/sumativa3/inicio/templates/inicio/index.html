@@ -1,0 +1,48 @@
+{% extends "inicio/base/base.html" %}
+
+{% block content %}
+{% if usuario.id_usuario %}
+<div class="container-fluid pt-5 max_width">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+            <h1>Bienvenido, {{ usuario.nombre_usuario }}</h1>
+            </div>
+            <div class="row">
+            <p>Elija una categoria</p>
+            </div>
+            <div class="row">
+                <a href="{% url 'perro' %}">Perros</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'gato' %}">Gatos</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'medicina' %}">Medicina</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container-fluid pt-5 max_width">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <form id="login" action="{% url 'log_in' %}">
+                {% csrf_token %}
+                <h1>Bienvenido!</h1>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+                    <input type="email" class="form-control" id="email" method="POST" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" method="POST" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Logear</button>
+            </form>
+            <a href="{% url 'recuperar' %}">Recuperar Contraseña</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

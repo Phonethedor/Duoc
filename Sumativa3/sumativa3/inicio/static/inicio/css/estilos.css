@@ -1,0 +1,12 @@
+body {
+    background: rgb(8,144,0);
+    background: linear-gradient(90deg, rgba(8,144,0,1) 4%, rgba(31,198,0,1) 18%, rgba(144,237,139,0.8323530095632002) 36%); 
+}
+
+nav {
+    background-color: #089000;
+}
+
+.max_width {
+    max-width: 50rem;
+}
