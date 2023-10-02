@@ -56,7 +56,7 @@ class Categoria(models.Model):
     def __str__(self) -> str:
         return self.nombre_categoria
 
-# Tipo de producto (alimento, juguete) (para futura implementacion de funcion de filtrado)
+# Tipo de producto (alimento, medicamento) (para futura implementacion de funcion de filtrado)
 class Tipo_producto(models.Model):
     
     id_tipo_producto = models.AutoField(primary_key=True)
