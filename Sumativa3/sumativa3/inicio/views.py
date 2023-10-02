@@ -31,11 +31,13 @@ def registro(request):
     return render(request, 'inicio/registro.html')
 
 def registrar(request):
-    correo = request.POST['email']
-    nombre = request.POST['nombre']
-    password = request.POST['pass1']
+    
+    if request.method == 'POST':
+        correo = request.POST['email']
+        nombre = request.POST['nombre']
+        password = request.POST['pass1']
 
-    usuario = Usuario.create(correo_usuario = correo, nombre_usuario = nombre, pass_usuario = password, rol_usuario = 2)
+        Usuario.objects.create(correo_usuario = correo, nombre_usuario = nombre, pass_usuario = password, rol_usuario = 2)
     return redirect('index')
 
 def recuperar(request):
