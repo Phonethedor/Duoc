@@ -1,12 +1,12 @@
 {% extends "inicio/base/base.html" %}
 
 {% block content %}
-{% if usuario.is_authenticated %}
+{% if request.user.is_authenticated %}
 <div class="container-fluid pt-5 max_width">
     <div class="row justify-content-center">
         <div class="col-10">
             <div class="row">
-            <h1>Bienvenido, {{ usuario.username }}</h1>
+            <h1>Bienvenido, {{ request.user.username }}</h1>
             </div>
             <div class="row">
             <p>Elija una categoria</p>

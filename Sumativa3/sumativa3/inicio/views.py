@@ -14,11 +14,10 @@ def index(request):
     return render(request, 'inicio/index.html', context)
 
 def log_in(request):
-    if request.method == 'POST':
         email = request.POST['email'].lower()
         password = request.POST['password'].lower()
 
-        user = authenticate(request, username=email, password=password)
+        user = authenticate(request,username=email, password=password)
         if user is not None:
             login(request,user)
             return redirect('index') 
