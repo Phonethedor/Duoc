@@ -13,15 +13,19 @@ def index(request):
     return render(request, 'inicio/index.html', context)
 
 def log_in(request):
-    user = Usuario.objects.filter(correo_usuario=request.POST['email'].lower())
-    password = Usuario.objects.filter(pass_usuario=request.POST['password'].lower())
+    if request.method == 'POST':
+        email = request.POST['email'].lower()
+        password = request.POST['password'].lower()
 
-    if len(user != password):        
-        return redirect('index')
-    else:
-        request.session['id'] = user[0].id_usuario
-        request.session['user_name'] = user[0].nombre_usuario
-        return redirect('index')  
+        try:
+            user = Usuario.objects.get(correo_usuario=email, pass_usuario=password)
+            request.session['id'] = user.id_usuario
+            request.session['user_name'] = user.nombre_usuario
+            return redirect('index') 
+        except Usuario.DoesNotExist:
+            return redirect('index')
+
+         
     
 def log_out(request):
     request.session.flush()
@@ -29,7 +33,7 @@ def log_out(request):
 
 def registro(request):
     return render(request, 'inicio/registro.html')
-
+#no lo guardo en la bd
 def registrar(request):
     
     if request.method == 'POST':
@@ -37,7 +41,7 @@ def registrar(request):
         nombre = request.POST['nombre']
         password = request.POST['pass1']
 
-        Usuario.objects.create(correo_usuario = correo, nombre_usuario = nombre, pass_usuario = password, rol_usuario = 2)
+        Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = 2)
     return redirect('index')
 
 def recuperar(request):
