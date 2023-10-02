@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 from .models import *
 from django.contrib import messages
 
 # Create your views here.
+
 def index(request):
-    if 'id_usuario' not in request.session:
-        return render(request, 'inicio/index.html')
     
     context = {
-        "usuario": Usuario.objects.get(id_usuario=request.session['id']),
+        "usuario": request.user,
     }
     return render(request, 'inicio/index.html', context)
 
@@ -18,13 +18,12 @@ def log_in(request):
         email = request.POST['email'].lower()
         password = request.POST['password'].lower()
 
-        try:
-            user = Usuario.objects.get(correo_usuario=email, pass_usuario=password)
-            request.session['id'] = user.id_usuario
-            request.session['user_name'] = user.nombre_usuario
+        user = authenticate(request, username=email, password=password)
+        if user is not None:
+            login(request,user)
             return redirect('index') 
-        except Usuario.DoesNotExist:
-            return redirect('index')
+        else:
+            return redirect('log_in')
 
          
     
@@ -46,7 +45,7 @@ def registrar(request):
 
         Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = rol)
         messages.success(request, 'se ha creado correctamente')
-        return redirect('inicio/index.html') # error 
+        return redirect('index') # error 
    
 
 def recuperar(request):
