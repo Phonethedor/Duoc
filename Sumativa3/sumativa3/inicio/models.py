@@ -4,7 +4,7 @@ from django.db import models
 
 # Propio de usuario
 
-# Rol usuario (1 = admin, 2 = user)
+# Rol usuario (1 = admin, 2 = cliente)
 class Rol(models.Model):
 
     id_rol = models.IntegerField(primary_key=True, verbose_name="Id rol de usuario")

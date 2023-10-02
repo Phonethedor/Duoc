@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import *
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -33,7 +34,7 @@ def log_out(request):
 
 def registro(request):
     return render(request, 'inicio/registro.html')
-#no lo guardo en la bd
+
 def registrar(request):
     
     if request.method == 'POST':
@@ -41,8 +42,12 @@ def registrar(request):
         nombre = request.POST['nombre']
         password = request.POST['pass1']
 
-        Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = 2)
-    return redirect('index')
+        rol = Rol.objects.get(id_rol=2)
+
+        Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = rol)
+        messages.success(request, 'se ha creado correctamente')
+        return redirect('inicio/index.html') # error 
+   
 
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')

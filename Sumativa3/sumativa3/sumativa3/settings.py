@@ -83,9 +83,9 @@ DATABASES = {
         'TEST': {
             'USER': 'default_test',
             'TBLSPACE': 'default_test_tbls',
-            'TBLSPACE_TMP': 'default_test_tbls_tmp',
-        },
-    },
+            'TBLSPACE_TMP': 'default_test_tbls_tmp'
+        }
+    }
 }
 
 
