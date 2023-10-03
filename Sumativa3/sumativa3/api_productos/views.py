@@ -1,13 +1,16 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt
 from inicio.models import Producto
 from .serializers import *
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 @csrf_exempt
 @api_view(['GET'])
+@permission_classes((IsAuthenticated,))
 def lista_productos(request):
     pass
     if request.method == 'GET':
