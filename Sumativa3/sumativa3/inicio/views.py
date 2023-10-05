@@ -7,23 +7,34 @@ from django.contrib import messages
 # Create your views here.
 
 def index(request):
+    user_id= request.session.get('id_usuario')
+    if user_id  is None:
+        usuario=Usuario.objects.get(id_usuario=user_id)  
+        context = {
+            "usuario": usuario,
+        }
+        return render(request, 'inicio/index.html', context)
+    else:
+        return render(request, 'inicio/index.html')
     
-    context = {
-        "usuario": request.user,
-    }
-    return render(request, 'inicio/index.html', context)
 
 def log_in(request):
     if request.method == 'POST':
-        email = request.POST['email'].lower()
-        password = request.POST['password'].lower()
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
 
-        user = authenticate(request, correo_usuario=email, pass_usuario=password)
-        if user is not None:
-            login(request,user)
-            return redirect('index') 
-        else:
-            return redirect('index')
+        try:
+            user= Usuario.objects.get(correo_usuario=email)
+            if user.pass_usuario==password:
+                request.session['id'] = user.id_usuario
+                request.session['user_name'] = user.nombre_usuario
+                return redirect('index') 
+            else:
+                messages.error(request, 'Usuario o contraseña incorrecto')
+
+        except Usuario.DoesNotExist:
+            messages.error(request, 'Debe registrarse') 
+    return redirect('index')
    
 def log_out(request):
     request.session.flush()
