@@ -14,18 +14,17 @@ def index(request):
     return render(request, 'inicio/index.html', context)
 
 def log_in(request):
+    if request.method == 'POST':
         email = request.POST['email'].lower()
         password = request.POST['password'].lower()
 
-        user = authenticate(request,username=email, password=password)
+        user = authenticate(request, correo_usuario=email, pass_usuario=password)
         if user is not None:
             login(request,user)
             return redirect('index') 
         else:
-            return redirect('log_in')
-
-         
-    
+            return redirect('index')
+   
 def log_out(request):
     request.session.flush()
     return redirect('index')
@@ -43,10 +42,9 @@ def registrar(request):
         rol = Rol.objects.get(id_rol=2)
 
         Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = rol)
-        messages.success(request, 'se ha creado correctamente')
-        return redirect('index') # error 
+        messages.success(request, 'se ha registrado correctamente')
+        return redirect('index')  
    
-
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
