@@ -14,11 +14,11 @@ class Rol(models.Model):
         return self.nombre_rol
     
 # Tabla usuario
-class Usuario(models.Model):
+class Usuario(models.Model): 
 
     id_usuario = models.AutoField(primary_key=True)
     correo_usuario = models.CharField(unique=True, max_length=50)
-    nombre_usuario = models.CharField(max_length=50)
+    nombre_usuario = models.CharField(unique=True, max_length=50)
     pass_usuario = models.CharField(max_length=50)
     rol_usuario = models.ForeignKey(Rol ,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

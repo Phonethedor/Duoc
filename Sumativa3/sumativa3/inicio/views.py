@@ -8,32 +8,33 @@ from django.contrib import messages
 
 def index(request):
     user_id= request.session.get('id_usuario')
-    if user_id  is None:
-        usuario=Usuario.objects.get(id_usuario=user_id)  
-        context = {
-            "usuario": usuario,
-        }
-        return render(request, 'inicio/index.html', context)
-    else:
-        return render(request, 'inicio/index.html')
+
+    if user_id  is not None:
+
+        usuario=Usuario.objects.get(id_usuario=user_id) 
+        if usuario:
+            context = {
+                "usuario": usuario,
+            }
+            return render(request, 'inicio/index.html', context)
+       
+    return render(request, 'inicio/index.html')
     
 
 def log_in(request):
     if request.method == 'POST':
-        email = request.POST.get('email').lower()
-        password = request.POST.get('password')
+        email = request.POST['email'].lower()
+        password = request.POST['password']
 
-        try:
-            user= Usuario.objects.get(correo_usuario=email)
-            if user.pass_usuario==password:
-                request.session['id'] = user.id_usuario
-                request.session['user_name'] = user.nombre_usuario
-                return redirect('index') 
-            else:
-                messages.error(request, 'Usuario o contraseña incorrecto')
+        user = Usuario.objects.get(correo_usuario=email)
 
-        except Usuario.DoesNotExist:
-            messages.error(request, 'Debe registrarse') 
+        if user.pass_usuario==password:
+            request.session['id_usuario'] = user.id_usuario
+            request.session['user_name'] = user.nombre_usuario
+            return redirect('index') 
+        else:
+            messages.error(request, 'Usuario o contraseña incorrecto')
+
     return redirect('index')
    
 def log_out(request):
