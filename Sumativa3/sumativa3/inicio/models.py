@@ -17,7 +17,7 @@ class Rol(models.Model):
 class Usuario(models.Model):
 
     id_usuario = models.AutoField(primary_key=True)
-    correo_usuario = models.CharField(max_length=50)
+    correo_usuario = models.CharField(unique=True, max_length=50)
     nombre_usuario = models.CharField(max_length=50)
     pass_usuario = models.CharField(max_length=50)
     rol_usuario = models.ForeignKey(Rol ,on_delete=models.CASCADE)

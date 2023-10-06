@@ -5,22 +5,22 @@
     <div class="container-fluid pt-5">
         <div class="row justify-content-center">
             <div class="col-10">
-                <form id="edit" action="{% url 'editar' %}">
+                <form id="edit" action="{% url 'editar' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" value="{{usuario.id_usuario}}" id="id" method="POST">
+                    <input type="hidden" value="{{usuario.id_usuario}}" id="id" name="id">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
                         <p>{{ usuario.email_usuario }}</p>
-                        <input type="email" class="form-control" id="email" required method="POST">
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nombre</label>
                         <p>{{ usuario.nombre_usuario }}</p>
-                        <input type="text" class="form-control" id="nombre" required method="POST">
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="pass1" required method="POST">
+                        <input type="password" class="form-control" id="pass1" name="pass1" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Confirme contraseña</label>
