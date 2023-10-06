@@ -12,7 +12,6 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 def lista_usuarios(request):
-    pass
     if request.method == 'GET':
         usuario = Usuario.objects.all()
         serializer = UsuarioSerializers(usuario, many = True)

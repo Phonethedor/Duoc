@@ -12,7 +12,6 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 def lista_productos(request):
-    pass
     if request.method == 'GET':
         producto = Producto.objects.all()
         serializer = ProductoSerializers(producto, many = True)
