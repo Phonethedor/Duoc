@@ -3,18 +3,9 @@ CREATE TABLE "ROL" (
 	"nombre_rol" NVARCHAR2(10) NOT NULL,
 	constraint ROL_PK PRIMARY KEY ("id_rol"));
 
-CREATE sequence "ROL_ID_ROL_SEQ";
-
-CREATE trigger "BI_ROL_ID_ROL"
-  before insert on "ROL"
-  for each row
-begin
-  select "ROL_ID_ROL_SEQ".nextval into :NEW."id_rol" from dual;
-end;
-
 /
 CREATE TABLE "USUARIO" (
-	"id_usuario" INT NOT NULL,
+	"id_usuario" INT ,
 	"correo_usuario" NVARCHAR2(50) NOT NULL,
 	"nombre_usuario" NVARCHAR2(50) NOT NULL,
 	"pass_usuario" NVARCHAR2(50) NOT NULL,
@@ -32,7 +23,7 @@ end;
 
 /
 CREATE TABLE "Proveedor" (
-	"id_proveedor" INT NOT NULL,
+	"id_proveedor" INT,
 	"nombre_proveedor" NVARCHAR2(100) NOT NULL,
 	constraint PROVEEDOR_PK PRIMARY KEY ("id_proveedor"));
 
@@ -47,7 +38,7 @@ end;
 
 /
 CREATE TABLE "MARCA" (
-	"id_marca" INT NOT NULL,
+	"id_marca" INT,
 	"nombre_marca" NVARCHAR2(100) NOT NULL,
 	constraint MARCA_PK PRIMARY KEY ("id_marca"));
 
@@ -62,7 +53,7 @@ end;
 
 /
 CREATE TABLE "CATEGORIA" (
-	"id_categoria" INT NOT NULL,
+	"id_categoria",
 	"nombre_categoria" NVARCHAR2(100) NOT NULL,
 	constraint CATEGORIA_PK PRIMARY KEY ("id_categoria"));
 
@@ -77,7 +68,7 @@ end;
 
 /
 CREATE TABLE "TIPO_PRODUCTO" (
-	"id_tipo_producto" INT NOT NULL,
+	"id_tipo_producto" INT,
 	"descripcion_tipo_producto" NVARCHAR2(100) NOT NULL,
 	constraint TIPO_PRODUCTO_PK PRIMARY KEY ("id_tipo_producto"));
 
@@ -92,9 +83,9 @@ end;
 
 /
 CREATE TABLE "PRODUCTO" (
-	"id_producto" INT NOT NULL,
+	"id_producto" INT,
 	"nombre_producto" NVARCHAR2(50) NOT NULL,
-	"descripcion_producto" VARCHAR2(200) NOT NULL,
+	"descripcion_producto" NVARCHAR2(200) NOT NULL,
 	"valor_producto" INT NOT NULL,
 	"stock_producto" INT NOT NULL,
 	"imagen_producto" NVARCHAR2(255) NOT NULL,
@@ -115,7 +106,7 @@ end;
 
 /
 CREATE TABLE "VENTA" (
-	"id_venta" INT NOT NULL,
+	"id_venta" INT,
 	"producto" INT NOT NULL,
 	"cantidad" INT NOT NULL,
 	"total" INT NOT NULL,
@@ -132,7 +123,7 @@ end;
 
 /
 CREATE TABLE "DETALLE_VENTA" (
-	"id_detalle" INT NOT NULL,
+	"id_detalle" INT,
 	"usuario" INT NOT NULL,
 	"ventas" INT NOT NULL,
 	"created_at" TIMESTAMP NOT NULL,
