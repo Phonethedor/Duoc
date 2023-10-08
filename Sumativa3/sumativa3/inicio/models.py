@@ -21,8 +21,6 @@ class Usuario(models.Model):
     nombre_usuario = models.CharField(unique=True, max_length=50)
     pass_usuario = models.CharField(max_length=50)
     rol_usuario = models.ForeignKey(Rol ,on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return self.nombre_usuario
@@ -78,8 +76,6 @@ class Producto(models.Model):
     marca_producto = models.ForeignKey(Marca, on_delete=models.CASCADE)
     categoria_producto = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     tipo_producto = models.ForeignKey(Tipo_producto, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return self.nombre_producto
