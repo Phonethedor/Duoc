@@ -1,6 +1,6 @@
 CREATE TABLE "ROL" (
 	"id_rol" INT NOT NULL,
-	"nombre_rol" VARCHAR2(10) NOT NULL,
+	"nombre_rol" NVARCHAR2(10) NOT NULL,
 	constraint ROL_PK PRIMARY KEY ("id_rol"));
 
 CREATE sequence "ROL_ID_ROL_SEQ";
@@ -15,9 +15,9 @@ end;
 /
 CREATE TABLE "USUARIO" (
 	"id_usuario" INT NOT NULL,
-	"correo_usuario" VARCHAR2(50) NOT NULL,
-	"nombre_usuario" VARCHAR2(50) NOT NULL,
-	"pass_usuario" VARCHAR2(50) NOT NULL,
+	"correo_usuario" NVARCHAR2(50) NOT NULL,
+	"nombre_usuario" NVARCHAR2(50) NOT NULL,
+	"pass_usuario" NVARCHAR2(50) NOT NULL,
 	"rol_usuario" INT NOT NULL,
 	constraint USUARIO_PK PRIMARY KEY ("id_usuario"));
 
@@ -33,7 +33,7 @@ end;
 /
 CREATE TABLE "Proveedor" (
 	"id_proveedor" INT NOT NULL,
-	"nombre_proveedor" VARCHAR2(100) NOT NULL,
+	"nombre_proveedor" NVARCHAR2(100) NOT NULL,
 	constraint PROVEEDOR_PK PRIMARY KEY ("id_proveedor"));
 
 CREATE sequence "PROVEEDOR_ID_PROVEEDOR_SEQ";
@@ -48,7 +48,7 @@ end;
 /
 CREATE TABLE "MARCA" (
 	"id_marca" INT NOT NULL,
-	"nombre_marca" VARCHAR2(100) NOT NULL,
+	"nombre_marca" NVARCHAR2(100) NOT NULL,
 	constraint MARCA_PK PRIMARY KEY ("id_marca"));
 
 CREATE sequence "MARCA_ID_MARCA_SEQ";
@@ -63,7 +63,7 @@ end;
 /
 CREATE TABLE "CATEGORIA" (
 	"id_categoria" INT NOT NULL,
-	"nombre_categoria" VARCHAR2(100) NOT NULL,
+	"nombre_categoria" NVARCHAR2(100) NOT NULL,
 	constraint CATEGORIA_PK PRIMARY KEY ("id_categoria"));
 
 CREATE sequence "CATEGORIA_ID_CATEGORIA_SEQ";
@@ -78,7 +78,7 @@ end;
 /
 CREATE TABLE "TIPO_PRODUCTO" (
 	"id_tipo_producto" INT NOT NULL,
-	"descripcion_tipo_producto" VARCHAR2(100) NOT NULL,
+	"descripcion_tipo_producto" NVARCHAR2(100) NOT NULL,
 	constraint TIPO_PRODUCTO_PK PRIMARY KEY ("id_tipo_producto"));
 
 CREATE sequence "TIPO_PRODUCTO_ID_TIPO_PRODUCTO_SEQ";
@@ -93,11 +93,11 @@ end;
 /
 CREATE TABLE "PRODUCTO" (
 	"id_producto" INT NOT NULL,
-	"nombre_producto" VARCHAR2(50) NOT NULL,
+	"nombre_producto" NVARCHAR2(50) NOT NULL,
 	"descripcion_producto" VARCHAR2(200) NOT NULL,
 	"valor_producto" INT NOT NULL,
 	"stock_producto" INT NOT NULL,
-	"imagen_producto" VARCHAR2(255) NOT NULL,
+	"imagen_producto" NVARCHAR2(255) NOT NULL,
 	"proveedor_producto" INT NOT NULL,
 	"marca_producto" INT NOT NULL,
 	"categoria_producto" INT NOT NULL,
