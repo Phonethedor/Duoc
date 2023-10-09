@@ -22,21 +22,25 @@ def index(request):
     
 
 def log_in(request):
-    if request.method == 'POST':
-        email = request.POST['email'].lower()
-        password = request.POST['password']
+    email = request.POST.get('email')
+    password = request.POST.get('password')
 
+    try:
         user = Usuario.objects.get(correo_usuario=email)
+        print(user.nombre_usuario)
+    except Usuario.DoesNotExist:
+        messages.error(request, 'Usuario o contraseña incorrecto')
+        return redirect('index')
 
-        if user.pass_usuario==password:
-            request.session['id_usuario'] = user.id_usuario
-            request.session['user_name'] = user.nombre_usuario
-            return redirect('index') 
-        else:
-            messages.error(request, 'Usuario o contraseña incorrecto')
+    if user.pass_usuario == password:
+        request.session['id_usuario'] = user.id_usuario
+        request.session['user_name'] = user.nombre_usuario
+        return redirect('index')
+    else:
+        messages.error(request, 'Usuario o contraseña incorrecto')
 
     return redirect('index')
-   
+
 def log_out(request):
     request.session.flush()
     return redirect('index')
