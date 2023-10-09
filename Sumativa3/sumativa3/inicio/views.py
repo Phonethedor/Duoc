@@ -174,10 +174,14 @@ def add_producto(request):
     valor = request.POST['precio']
     stock = request.POST['stock']
     imagen = request.FILES['imagen']
-    proveedor = request.POST['proveedor']
-    marca = request.POST['marca']
-    tipo = request.POST['tipo']
-    categoria = request.POST['categoria']
+    prov = request.POST['proveedor']
+    proveedor = Proveedor.objects.get(id_proveedor = prov)
+    marc = request.POST['marca']
+    marca = Marca.objects.get(id_marca = marc)
+    tip = request.POST['tipo']
+    tipo = Tipo_producto.objects.get(id_tipo_producto = tip)
+    categ = request.POST['categoria']
+    categoria = Categoria.objects.get(id_categoria = categ)
 
     Producto.objects.create(
         nombre_producto=nombre, 
