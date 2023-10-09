@@ -64,11 +64,9 @@ def registrar(request):
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
-@login_required(login_url='index')
 def editar_pagina(request):
     return render(request, 'inicio/editar.html')
 
-@login_required(login_url='index')
 def editar(request):
     id = int(request.POST['id'])
     email = request.POST['email']
@@ -82,7 +80,6 @@ def editar(request):
     user.save()
     return redirect('/')
 
-@login_required(login_url='index')
 def perro(request):
     count = Producto.objects.filter(categoria_producto=1).count()
     if count == 0:
@@ -98,7 +95,6 @@ def perro(request):
         }
         return render(request, 'inicio/perro.html', context)
 
-@login_required(login_url='index')
 def gato(request):
     count = Producto.objects.filter(categoria_producto=2).count()
     if count == 0:
@@ -114,7 +110,6 @@ def gato(request):
         }
         return render(request, 'inicio/gato.html', context)
 
-@login_required(login_url='index')
 def medicina(request):
     count = Producto.objects.filter(categoria_producto=3).count()
     if count == 0:
@@ -130,7 +125,6 @@ def medicina(request):
         }
         return render(request, 'inicio/medicina.html', context)
     
-@login_required(login_url='index')
 def stock(request):
     productos = Producto.objects.all()
     context = {
@@ -138,13 +132,11 @@ def stock(request):
     }
     return render(request, 'inicio/stock.html', context)
 
-@login_required(login_url='index')
 def eliminar_stock(request, id):
     producto = Producto.objects.get(id_producto=id)
     producto.delete()
     return redirect('stock')
 
-@login_required(login_url='index')
 def editar_stock(request, id):
     producto = Producto.objects.get(id_producto=id)
     context = {
@@ -162,7 +154,6 @@ def modificar_stock(request):
     producto.save()
     return redirect('stock')
 
-@login_required(login_url='index')
 def agregar_producto(request):
     categorias = Categoria.objects.all()
     proveedores = Proveedor.objects.all()
