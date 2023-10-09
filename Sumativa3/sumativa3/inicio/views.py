@@ -65,6 +65,10 @@ def recuperar(request):
     return render(request, 'inicio/recuperar.html')
 
 @login_required(login_url='index')
+def editar_pagina(request):
+    return render(request, 'inicio/editar.html')
+
+@login_required(login_url='index')
 def editar(request):
     id = int(request.POST['id'])
     email = request.POST['email']

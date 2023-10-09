@@ -8,6 +8,7 @@ urlpatterns = [
     path('log_in/', log_in, name='log_in'),
     path('log_out/', log_out, name='log_out'),
     path('recuperar/', recuperar, name='recuperar'),
+    path('edit/', editar_pagina, name='editar_pagina'),
     path('editar/', editar, name='editar'),
     path('stock/', stock, name='stock'),
     path('eliminar_stock/<int:id>', eliminar_stock, name='eliminar_stock'),
