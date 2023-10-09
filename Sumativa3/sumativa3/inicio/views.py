@@ -49,7 +49,6 @@ def registro(request):
     return render(request, 'inicio/registro.html')
 
 def registrar(request):
-    
     correo = request.POST['email']
     nombre = request.POST['nombre']
     password = request.POST['pass1']
@@ -59,6 +58,9 @@ def registrar(request):
     Usuario.objects.create(correo_usuario=correo, nombre_usuario=nombre, pass_usuario = password, rol_usuario = rol)
     messages.success(request, 'se ha registrado correctamente')
     return redirect('index')  
+   
+def recuperar(request):
+    return render(request, 'inicio/recuperar.html') 
    
 def recuperar(request):
     return render(request, 'inicio/recuperar.html')
