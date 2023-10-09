@@ -37,9 +37,7 @@ $(document).ready(function () {
                 minlength: "La contraseña debe contener minimo 10 caracteres",
                 equalTo: "La contraseña no es igual"
             }
-        },
-        success: "valido",
-        submitHandler: function () { alert("Registrado con exito") }
+        }
     });
 
     $("#login").validate({
@@ -62,9 +60,7 @@ $(document).ready(function () {
                 required: "Ingrese contraseña",
                 minlength: "Ingrese una contraseña valida"
             }
-        },
-        success: "valido",
-        submitHandler: function () { alert("Ha ingresado con exito!") }
+        }
     });
 
     $("#edit").validate({
@@ -105,9 +101,7 @@ $(document).ready(function () {
                 minlength: "La contraseña debe contener minimo 10 caracteres",
                 equalTo: "La contraseña no es igual"
             }
-        },
-        success: "valido",
-        submitHandler: function () { alert("Datos editados con exito") }
+        }
     });
 
     $("#recuperar").validate({
@@ -177,9 +171,7 @@ $(document).ready(function () {
                 required: "Ingrese stock",
                 number: "Ingrese stock valido"
             }
-        },
-        success: "valido",
-        submitHandler: function () { alert("Producto ingresado con exito") }
+        }
     });
 
     $("#edit-product").validate({
@@ -232,9 +224,7 @@ $(document).ready(function () {
                 required: "Ingrese stock",
                 number: "Ingrese stock valido"
             }
-        },
-        success: "valido",
-        submitHandler: function () { alert("Producto modificado con exito") }
+        }
     });
 
     $("#btn1").bind("click", function(e) {
